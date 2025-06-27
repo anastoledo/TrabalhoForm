@@ -55,34 +55,6 @@ class AlunosDAO {
         }
 
         return $alunos;
-    }
-
-    public function buscarPorId($id) {
-    $sql = "SELECT * FROM alunos WHERE id = ?";
-
-    $con = Conexao::getConexao();
-    $stm = $con->prepare($sql);
-    $stm->execute([$id]);
-
-    $registros = $stm->fetchAll();
-
-    if (count($registros) > 0) {
-        $dados = $registros[0]; // Pega o primeiro (e único) registro
-
-        $aluno = new Alunos();
-        $aluno->setId($dados['id']);
-        $aluno->setNome($dados['nome']);
-        $aluno->setEspecie($dados['especie']);
-        $aluno->setOrigem($dados['origem']);
-        $aluno->setHabilidadeEspecial($dados['habilidade_especial']);
-        $aluno->setGenero($dados['genero']);
-        $aluno->setSituacao($dados['situacao']);
-        $aluno->setImagem($dados['imagem']);
-
-        return $aluno;
-    }
-
-    return null;
-}
+    }  
 
 }
