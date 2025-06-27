@@ -64,10 +64,12 @@ class AlunosDAO {
     $stm = $con->prepare($sql);
     $stm->execute([$id]);
 
-    $dados = $stm->fetch(PDO::FETCH_ASSOC);
+    $registros = $stm->fetchAll();
 
-    if ($dados) {
-        $aluno = new Alunos(); //Se encontrar dados, cria um novo aluno
+    if (count($registros) > 0) {
+        $dados = $registros[0]; // Pega o primeiro (e único) registro
+
+        $aluno = new Alunos();
         $aluno->setId($dados['id']);
         $aluno->setNome($dados['nome']);
         $aluno->setEspecie($dados['especie']);
@@ -76,12 +78,11 @@ class AlunosDAO {
         $aluno->setGenero($dados['genero']);
         $aluno->setSituacao($dados['situacao']);
         $aluno->setImagem($dados['imagem']);
+
         return $aluno;
     }
 
-    return null; //Se não encontrar o ID, retorna null
-
-
+    return null;
 }
 
 }
