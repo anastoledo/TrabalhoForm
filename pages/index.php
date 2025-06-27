@@ -11,13 +11,13 @@ $dao = new AlunosDAO();
 $alunos = $dao->listarTodos(); // Método que retorna todos os alunos
 
 $msgErro = "";
-$nome = "";
-$especie = "";
-$origem = "";
-$habilidadeEspecial = "";
-$genero = "";
-$situacao = "";
-$imagem = "";
+$nome = $_POST['nome'] ?? "";
+$especie = $_POST['especie'] ?? "";
+$origem = $_POST['origem'] ?? "";
+$habilidadeEspecial = $_POST['habilidade'] ?? "";
+$genero = $_POST['genero'] ?? "";
+$situacao = $_POST['situacao'] ?? "";
+$imagem = $_POST['imagem'] ?? "";
 
 // Se o formulário foi enviado
 if (isset($_POST['nome'])) {
