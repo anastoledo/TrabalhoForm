@@ -6,16 +6,7 @@ require_once("../dao/AlunosDAO.php");
 $con = Conexao::getConexao();
 $dao = new AlunosDAO();
 
-$alunos = array();
-
-if (isset($_GET['id'])) {
-    $aluno = $dao->buscarPorId($_GET['id']);
-    if ($aluno) {
-        array_push($alunos, $aluno);
-    }
-} else {
-    $alunos = $dao->listarTodos();
-}
+$alunos = $dao->listarTodos();
 ?>
 
 <!DOCTYPE html>
@@ -27,7 +18,7 @@ if (isset($_GET['id'])) {
 </head>
 <body>
 
-<h1 style=>Alunos cadastrados</h1>
+<h1>Alunos cadastrados</h1>
 
 <div class="cards-container">
 <?php foreach ($alunos as $a): ?>
