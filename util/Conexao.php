@@ -19,7 +19,7 @@ class Conexao{
            self::$conn =
                new PDO("mysql:host=localhost:3306;dbname=monsterhigh",
                        "root",
-                       "TOledo1*", $opcoes);
+                       "", $opcoes);
         }
        
         return self::$conn;
