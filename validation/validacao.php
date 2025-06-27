@@ -50,5 +50,10 @@ function validarAlunos($dados, $con) {
         array_push($erros, "Informe a situação do aluno!");
     }
 
+    // Imagem
+    if (!isset($dados['imagem']) || $dados['imagem'] === '') {
+        array_push($erros, "Informe a imagem do aluno!");
+    }
+
     return $erros;
 }
