@@ -66,5 +66,11 @@ $alunos = $dao->listarTodos();
 <?php endforeach; ?>
 </div>
 
+   <a href="index.php">
+        <button>
+            Ver os Cards
+        </button>
+    </a>
+
 </body>
 </html>
